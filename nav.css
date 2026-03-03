@@ -36,50 +36,15 @@ body{font-family:'Fira Mono','Consolas','Menlo','Monaco','Liberation Mono',monos
 	}
 }
 
-/* CSS-only hamburger toggle (checkbox hack) */
-.nav-toggle-input { display: none; }
-.nav-toggle {
-	display: none;
-	background: transparent;
-	border: 0;
-	color: var(--nav-color);
-	padding: 8px;
-	border-radius: 8px;
-	align-items: center;
-	justify-content: center;
-	cursor: pointer;
-}
-.nav-toggle .bar{
-	display:block;
-	width:22px;
-	height:2px;
-	background:var(--nav-color);
-	margin:4px 0;
-	border-radius:2px;
-	transition: transform 240ms ease, opacity 160ms ease;
-}
-
+/* small-screen adjustments handled below; remove hamburger CSS (restored horizontal nav) */
 @media (max-width: 700px) {
-	.nav-toggle { display: flex; }
-	.main-nav { display: none; }
-	/* when checkbox is checked, show nav */
-	.nav-toggle-input:checked + .nav-toggle + .main-nav {
-		display: flex;
-		flex-direction: column;
-		width: calc(100% - 32px);
-		margin: 8px 16px;
-		gap: 6px;
-	}
-	.nav-toggle-input:checked + .nav-toggle + .main-nav a {
-		width: 100%;
-		text-align: left;
-		padding: 10px 14px;
-	}
-	.nav-toggle-input:checked + .nav-toggle + .main-nav { max-height: 60vh; overflow:auto; }
-	/* animate bars into X */
-	.nav-toggle-input:checked + .nav-toggle .bar:nth-child(1){ transform: translateY(6px) rotate(45deg);} 
-	.nav-toggle-input:checked + .nav-toggle .bar:nth-child(2){ opacity:0; transform: scaleX(0);} 
-	.nav-toggle-input:checked + .nav-toggle .bar:nth-child(3){ transform: translateY(-6px) rotate(-45deg);} 
+  .main-nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+  .main-nav a { padding: 8px 12px; }
 }
 /* Shared navigation styles to keep nav identical across pages */
 :root{--nav-color:#dff7f0;--nav-accent:#3ee7c6}
