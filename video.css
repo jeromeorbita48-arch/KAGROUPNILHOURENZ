@@ -89,10 +89,19 @@ body{margin:0;font-family:'Fira Mono','Consolas','Menlo','Monaco','Liberation Mo
     margin-bottom: 6px;
   }
   .media {
-    height: 120px;
+    height: auto;
+    min-height: 120px;
+    max-width: 96vw;
+    margin: 0 auto;
     border-radius: 6px;
+    padding: 0;
   }
   .media video, .media iframe {
     border-radius: 4px;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 100px;
+    background: #222;
   }
 }

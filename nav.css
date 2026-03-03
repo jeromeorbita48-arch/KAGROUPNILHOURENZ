@@ -20,15 +20,19 @@ body{font-family:'Fira Mono','Consolas','Menlo','Monaco','Liberation Mono',monos
 	.main-nav {
 		flex-direction: row;
 		overflow-x: auto;
-		gap: 8px;
+		gap: 4px;
 		width: 100vw;
-		justify-content: flex-end;
-		padding: 4px 0;
+		justify-content: flex-start;
+		padding: 2px 0 2px 2vw;
+		font-size: 0.98em;
+		scrollbar-width: thin;
 	}
 	.main-nav a {
-		min-width: 80px;
-		padding: 8px 8px;
+		min-width: 70px;
+		padding: 7px 8px;
+		font-size: 0.98em;
 		text-align: center;
+		white-space: nowrap;
 	}
 }
 /* Shared navigation styles to keep nav identical across pages */
