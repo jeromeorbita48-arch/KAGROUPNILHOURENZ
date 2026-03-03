@@ -1,3 +1,38 @@
+@media (max-width: 400px) {
+	.grid {
+		gap: 8px;
+		padding: 0 1vw;
+		justify-items: center;
+	}
+	.card {
+		padding: 8px 2px 6px 2px;
+		border-radius: 6px;
+		max-width: 99vw;
+		margin: 0 auto 8px auto;
+		box-sizing: border-box;
+	}
+	.card-header {
+		flex-direction: column;
+		align-items: center;
+		gap: 6px;
+		margin-bottom: 8px;
+		text-align: center;
+	}
+	.avatar {
+		width: 28px;
+		height: 28px;
+		border-radius: 4px;
+		margin-bottom: 4px;
+	}
+	h2 {
+		font-size: 12px;
+		text-align: center;
+	}
+	.section-title {
+		font-size: 10px;
+		gap: 2px;
+	}
+}
 :root{--accent:#3ee7c6;--muted:#9fb7c9}
 *{box-sizing:border-box}
 body{margin:0;font-family:'Fira Mono','Consolas','Menlo','Monaco','Liberation Mono',monospace;background:#071026;color:#eaf6ff;background-image:url('IT-background.jpg');background-size:cover}

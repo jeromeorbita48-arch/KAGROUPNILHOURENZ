@@ -45,8 +45,10 @@ body{font-family:'Fira Mono','Consolas','Menlo','Monaco','Liberation Mono',monos
 	background: rgba(0,0,0,0.18);
 	border-radius: 16px;
 	box-shadow: 0 4px 24px 0 rgba(62,231,198,0.08);
-	padding: 10px 32px;
+	padding: 10px 20px;
 	margin: 0 auto;
+	max-width: 100%;
+	flex-wrap: wrap;
 }
 .main-nav a {
 	color: var(--nav-color);
@@ -59,6 +61,12 @@ body{font-family:'Fira Mono','Consolas','Menlo','Monaco','Liberation Mono',monos
 	position: relative;
 	font-size: 1.08em;
 	letter-spacing: 0.5px;
+}
+
+/* Make the nav shrinkable on very small screens */
+@media (max-width:360px){
+  .main-nav a{padding:8px 10px;font-size:0.95em;min-width:60px}
+  .main-nav{gap:8px;padding:6px 8px}
 }
 .main-nav a:hover, .main-nav a:focus {
 	color: var(--nav-accent);

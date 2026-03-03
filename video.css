@@ -1,3 +1,24 @@
+@media (max-width: 400px) {
+  .panel {
+    max-width: 99vw;
+    padding: 4px 1vw 8px 1vw;
+    border-radius: 6px;
+  }
+  .media {
+    max-width: 99vw;
+    margin: 0 auto;
+    height: auto;
+    min-height: 80px;
+    border-radius: 5px;
+  }
+  .media video, .media iframe {
+    border-radius: 3px;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 60px;
+  }
+}
 .nav-wrapper{margin-bottom:18px;display:flex;justify-content:center;align-items:center;}
 :root{--accent:#3ee7c6}
 *{box-sizing:border-box}

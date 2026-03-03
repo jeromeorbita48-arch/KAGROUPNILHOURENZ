@@ -57,18 +57,24 @@ a{color:var(--accent)}
 
 @media (max-width: 600px) {
   .content {
-    padding: 8px 2vw 12px 2vw;
+    max-width: 98vw;
+    margin: 0 auto 12px auto;
+    padding: 10px 4vw 12px 4vw;
     border-radius: 8px;
+    box-sizing: border-box;
   }
   h1 {
-    font-size: 1.1em;
+    font-size: 1.08em;
     margin: 10px 0 6px 0;
+    text-align: center;
   }
   h3 {
     font-size: 1em;
+    text-align: center;
   }
   p {
-    font-size: 0.95em;
+    font-size: 0.97em;
+    text-align: left;
   }
   .wrap {
     padding: 4px;
