@@ -1,4 +1,3 @@
-/* Unify responsive container for all screens */
 @media (max-width: 400px) {
 	.container {
 		max-width: 99vw;
@@ -26,7 +25,6 @@
 		padding: 0 1px;
 	}
 }
-/* Main content centering and spacing fix */
 .main-content {
 	display: flex;
 	flex-direction: column;
@@ -46,7 +44,6 @@
 .footer-modern {
 	margin-top: 0;
 }
-/* Modern Group Page Redesign */
 .group-title {
 	text-align: center;
 	font-size: 2.2em;
@@ -219,7 +216,6 @@
 		font-size: 1em;
 	}
 }
-/* Center nav bar horizontally for index.html */
 .nav-wrapper {
 	display: flex;
 	justify-content: center;
@@ -236,12 +232,12 @@
 	width: 100%;
 }
 @media (max-width: 900px) {
-	/* Improved main container style */
+	
 	.container {
 		max-width: 700px;
 		margin: 60px auto 0 auto;
 		padding: 32px 32px 24px 32px;
-		background: rgba(20, 20, 30, 0.75); /* More contrast, slightly more opaque */
+		background: rgba(20, 20, 30, 0.75);
 		border-radius: 24px;
 		box-shadow: 0 8px 32px 0 rgba(0,0,0,0.25);
 		border: 1.5px solid rgba(255,255,255,0.10);
@@ -251,8 +247,6 @@
 		align-items: center;
 		font-family: inherit;
 	}
-	/* Improved card styles */
-	/* Restrict cards width and center */
 	.cards, .cards-modern {
 		display: flex;
 		gap: 32px;
@@ -308,7 +302,6 @@
 		gap: 6px;
 		padding: 4px 2vw;
 	}
-	/* ...existing code... */
 	.member img {
 		width: 32px;
 		height: 32px;
@@ -500,7 +493,7 @@ footer {
 }
 
 @media (max-width: 900px) {
-	/* ...existing code... */
+	
 	.cards {
 		gap: 12px;
 		flex-wrap: wrap;
@@ -524,7 +517,7 @@ footer {
 		gap: 10px;
 		padding: 8px 2vw;
 	}
-	/* ...existing code... */
+	
 	.cards {
 		flex-direction: column;
 		gap: 8px;

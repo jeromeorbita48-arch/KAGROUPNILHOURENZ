@@ -36,7 +36,7 @@ body{font-family:'Fira Mono','Consolas','Menlo','Monaco','Liberation Mono',monos
 	}
 }
 
-/* small-screen adjustments handled below; remove hamburger CSS (restored horizontal nav) */
+
 @media (max-width: 700px) {
   .main-nav {
     flex-direction: row;
@@ -46,7 +46,7 @@ body{font-family:'Fira Mono','Consolas','Menlo','Monaco','Liberation Mono',monos
   }
   .main-nav a { padding: 8px 12px; }
 }
-/* Shared navigation styles to keep nav identical across pages */
+
 :root{--nav-color:#dff7f0;--nav-accent:#3ee7c6}
 .main-nav {
 	display: flex;
@@ -74,7 +74,7 @@ body{font-family:'Fira Mono','Consolas','Menlo','Monaco','Liberation Mono',monos
 	letter-spacing: 0.5px;
 }
 
-/* Make the nav shrinkable on very small screens */
+
 @media (max-width:360px){
   .main-nav a{padding:8px 10px;font-size:0.95em;min-width:60px}
   .main-nav{gap:8px;padding:6px 8px}
