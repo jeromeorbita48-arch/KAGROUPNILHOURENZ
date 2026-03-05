@@ -48,6 +48,16 @@ body{margin:0;font-family:'Fira Mono','Consolas','Menlo','Monaco','Liberation Mo
 	backdrop-filter: blur(2px);
 	margin-top: 32px;
 }
+
+h1{
+	font-size:2.2em;
+	margin:28px 0 12px 0;
+	color:var(--accent);
+	letter-spacing:2.5px;
+	font-weight:800;
+	text-align:center;
+	text-shadow:0 2px 12px rgba(62,231,198,0.12);
+}
 .media{
 	width:100%;
 	height:520px;
