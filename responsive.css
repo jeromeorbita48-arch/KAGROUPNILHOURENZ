@@ -1,11 +1,17 @@
-
 :root{
   --base-font: clamp(14px, 1.2vw + 12px, 18px);
   --heading-scale: 1.45;
   --muted: #9fb7c9;
+  --primary-color: #4CAF50;
+  --secondary-color: #FF5722;
+  --background-gradient: linear-gradient(135deg, #4CAF50, #FF5722);
+  --font-family: monospace, 'Fira Mono', 'Consolas', 'Menlo', 'Monaco', 'Liberation Mono', monospace;
 }
 html{font-size:var(--base-font);}
-body{font-size:1rem;line-height:1.5}
+body{font-size:1rem;line-height:1.5;font-family:var(--font-family);background:var(--background-gradient);color:#fff;margin:0;padding:0;background-image: url('IT-background.jpg');
+background-size: cover;
+background-position: center;
+background-attachment: fixed;}
 img,video,iframe{max-width:100%;height:auto;display:block}
 .container, .panel, .content, .card, .cards-modern, .grid{box-sizing:border-box}
 
@@ -14,7 +20,7 @@ img,video,iframe{max-width:100%;height:auto;display:block}
 h1{font-size:clamp(1.4rem, 2.4vw, 2.6rem)}
 h2{font-size:clamp(1.05rem, 1.6vw, 1.4rem)}
 
-.main-nav a{min-height:44px}
+.main-nav a{min-height:44px;color:#fff;text-decoration:none;padding:10px 15px;border-radius:5px;transition:background-color 0.3s}
 
 html,body{max-width:100%;overflow-x:hidden}
 @media (prefers-reduced-motion: reduce){*{transition:none!important}}
@@ -45,26 +51,20 @@ html,body{max-width:100%;overflow-x:hidden}
 
 .scroll-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
 
-
-/* 1. Hide the checkbox completely */
 .toggle-details {
     display: none;
 }
 
-/* 2. Hide the details by default */
 .card-details {
     display: none;
     overflow: hidden;
-    /* Animation for a smoother "pop up" feel */
     animation: fadeIn 0.4s ease-in-out;
 }
 
-/* 3. When the checkbox is CHECKED, show the details */
 .toggle-details:checked ~ .card-details {
     display: block;
 }
 
-/* 4. Make the image look clickable and interactive */
 .card-header label {
     cursor: pointer;
     display: inline-block;
@@ -76,13 +76,13 @@ html,body{max-width:100%;overflow-x:hidden}
     border-color: #ffffff;
 }
 
-/* 5. Simple fade-in animation */
+
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Add a "Click to view" hint under the name */
+
 .meta::after {
     content: " (Click photo to expand)";
     display: block;
@@ -92,8 +92,153 @@ html,body{max-width:100%;overflow-x:hidden}
     opacity: 0.7;
 }
 
-/* Optional: Hide the hint when open */
+
 .toggle-details:checked + .card-header .meta::after {
     content: " (Click photo to close)";
-    color: #ff6b6b; /* Reddish color to indicate closing */
+    color: #ff6b6b; 
+}
+
+
+.wrap {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: var(--background-gradient);
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.cta-button {
+    background: var(--primary-color);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background: var(--secondary-color);
+}
+
+
+.footer {
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    border-top: 2px solid var(--accent);
+}
+
+.footer .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.footer .social-links a {
+    color: #fff;
+    font-size: 1.5rem;
+    transition: color 0.3s;
+}
+
+.footer .social-links a:hover {
+    color: var(--secondary-color);
+}
+
+.box {
+    position: relative;
+    padding: 20px;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    z-index: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.box::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #ff0000, #00ff00, #0000ff, #ff0000);
+    background-size: 300% 300%;
+    z-index: -1;
+    filter: blur(4px);
+    animation: borderAnimation 6s infinite;
+}
+
+@keyframes borderAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+.accent-border {
+    position: relative;
+    padding: 20px;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    z-index: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.accent-border::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, rgba(62, 231, 198, 0.5), rgba(255, 87, 34, 0.5), rgba(0, 0, 255, 0.5), rgba(62, 231, 198, 0.5));
+    background-size: 300% 300%;
+    z-index: -1;
+    filter: blur(6px);
+    animation: borderAnimation 6s infinite;
+}
+
+@keyframes borderAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
