@@ -1,244 +1,150 @@
-:root{
+/* responsive.css - Ultra Premium Global Utility Update */
+
+:root {
+  /* Fluid typography - automatically scales text based on screen size */
   --base-font: clamp(14px, 1.2vw + 12px, 18px);
-  --heading-scale: 1.45;
-  --muted: #9fb7c9;
-  --primary-color: #4CAF50;
-  --secondary-color: #FF5722;
-  --background-gradient: linear-gradient(135deg, #4CAF50, #FF5722);
-  --font-family: monospace, 'Fira Mono', 'Consolas', 'Menlo', 'Monaco', 'Liberation Mono', monospace;
+  --accent: #3ee7c6;
+  --accent-secondary: #6ec6ff;
+  --bg-dark: #071026;
+  --text-main: #eaf6ff;
+  --font-family: 'Fira Mono', 'Consolas', 'Menlo', 'Monaco', 'Liberation Mono', monospace;
 }
-html{font-size:var(--base-font);}
-body{font-size:1rem;line-height:1.5;font-family:var(--font-family);background:var(--background-gradient);color:#fff;margin:0;padding:0;background-image: url('IT-background.jpg');
-background-size: cover;
-background-position: center;
-background-attachment: fixed;}
-img,video,iframe{max-width:100%;height:auto;display:block}
-.container, .panel, .content, .card, .cards-modern, .grid{box-sizing:border-box}
 
-.responsive-wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 4vw}
+/* 1. GLOBAL RESETS & SMOOTH SCROLLING */
+html {
+  font-size: var(--base-font);
+  scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+  overflow-x: hidden;
+}
 
-h1{font-size:clamp(1.4rem, 2.4vw, 2.6rem)}
-h2{font-size:clamp(1.05rem, 1.6vw, 1.4rem)}
+body {
+  font-family: var(--font-family);
+  color: var(--text-main);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-.main-nav a{min-height:44px;color:#fff;text-decoration:none;padding:10px 15px;border-radius:5px;transition:background-color 0.3s}
+/* 2. PREMIUM TEXT SELECTION */
+::selection {
+  background: var(--accent);
+  color: #000;
+  text-shadow: none;
+}
+::-moz-selection {
+  background: var(--accent);
+  color: #000;
+  text-shadow: none;
+}
 
-html,body{max-width:100%;overflow-x:hidden}
-@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+/* 3. PREMIUM CUSTOM SCROLLBAR (Works on Chrome/Edge/Safari) */
+::-webkit-scrollbar {
+  width: 12px;
+  background: var(--bg-dark);
+}
 
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
 
-.container, .panel, .content, .grid {
-  width: 100%;
-  max-width: 1100px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 4vw;
-  padding-right: 4vw;
+::-webkit-scrollbar-thumb {
+  background: rgba(62, 231, 198, 0.3);
+  border-radius: 10px;
+  border: 3px solid var(--bg-dark);
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+  box-shadow: 0 0 10px var(--accent);
+}
+
+/* 4. FLUID MEDIA BEHAVIOR */
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.container, .panel, .content, .card, .cards-modern, .grid {
   box-sizing: border-box;
 }
 
-
-@media (min-width: 1600px) {
-  .responsive-wrap, .container, .panel, .content {
-    max-width: 1400px;
-    padding-left: 6vw;
-    padding-right: 6vw;
-  }
+/* Break words so long URLs or emails don't break the mobile layout */
+.card-name, .meta, p, li { 
+  word-break: break-word; 
+  overflow-wrap: anywhere; 
 }
 
-
-.card-name, .meta, p, li { word-break: break-word; overflow-wrap: anywhere; }
-
-
-.scroll-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
-
-.toggle-details {
-    display: none;
-}
-
-.card-details {
-    display: none;
-    overflow: hidden;
-    animation: fadeIn 0.4s ease-in-out;
-}
-
-.toggle-details:checked ~ .card-details {
-    display: block;
-}
-
-.card-header label {
-    cursor: pointer;
-    display: inline-block;
-}
-
-.avatar:hover {
-    transform: scale(1.08);
-    transition: transform 0.2s ease;
-    border-color: #ffffff;
-}
-
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-
-.meta::after {
-    content: " (Click photo to expand)";
-    display: block;
-    font-size: 11px;
-    margin-top: 4px;
-    color: var(--accent);
-    opacity: 0.7;
-}
-
-
-.toggle-details:checked + .card-header .meta::after {
-    content: " (Click photo to close)";
-    color: #ff6b6b; 
-}
-
-
-.wrap {
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-
-.hero {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background: var(--background-gradient);
-    color: #fff;
-    text-align: center;
-    padding: 20px;
-}
-
-.hero h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
-}
-
-.hero p {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-}
-
-.cta-button {
-    background: var(--primary-color);
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 1.2rem;
-    transition: background-color 0.3s;
-}
-
-.cta-button:hover {
-    background: var(--secondary-color);
-}
-
-
-.footer {
-    background: rgba(0, 0, 0, 0.8);
-    color: #fff;
-    text-align: center;
-    padding: 20px;
-    border-top: 2px solid var(--accent);
-}
-
-.footer .social-links {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 10px;
-}
-
-.footer .social-links a {
-    color: #fff;
-    font-size: 1.5rem;
-    transition: color 0.3s;
-}
-
-.footer .social-links a:hover {
-    color: var(--secondary-color);
-}
-
-.box {
-    position: relative;
-    padding: 20px;
-    border: 2px solid transparent;
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.1);
-    overflow: hidden;
-    z-index: 0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.box::before {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    background: linear-gradient(45deg, #ff0000, #00ff00, #0000ff, #ff0000);
-    background-size: 300% 300%;
-    z-index: -1;
-    filter: blur(4px);
-    animation: borderAnimation 6s infinite;
-}
-
-@keyframes borderAnimation {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-
+/* 5. THE HOLOGRAPHIC GLOW EFFECT (.accent-border) */
+/* This is an ultra-premium animated border that sits behind your glass cards */
 .accent-border {
-    position: relative;
-    padding: 20px;
-    border: 2px solid transparent;
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.1);
-    overflow: hidden;
-    z-index: 0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 1;
 }
 
 .accent-border::before {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    background: linear-gradient(45deg, rgba(62, 231, 198, 0.5), rgba(255, 87, 34, 0.5), rgba(0, 0, 255, 0.5), rgba(62, 231, 198, 0.5));
-    background-size: 300% 300%;
-    z-index: -1;
-    filter: blur(6px);
-    animation: borderAnimation 6s infinite;
+  content: '';
+  position: absolute;
+  /* Expands the glow slightly outside the card */
+  top: -2px; 
+  left: -2px; 
+  right: -2px; 
+  bottom: -2px;
+  border-radius: inherit; /* Copies the border radius of whatever card it is on */
+  background: linear-gradient(
+    60deg, 
+    var(--accent), 
+    transparent 30%, 
+    transparent 70%, 
+    var(--accent-secondary)
+  );
+  background-size: 300% 300%;
+  z-index: -1;
+  filter: blur(6px);
+  opacity: 0.6;
+  animation: premiumGlow 8s ease-in-out infinite alternate;
+  transition: opacity 0.3s ease;
 }
 
-@keyframes borderAnimation {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
+/* Make it glow brighter when hovered */
+.accent-border:hover::before {
+  opacity: 1;
+  filter: blur(10px);
+}
+
+@keyframes premiumGlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 6. GLOBAL RESPONSIVE ADJUSTMENTS */
+@media (max-width: 900px) {
+  h1 { font-size: 2rem !important; }
+  h2 { font-size: 1.5rem !important; }
+}
+
+@media (max-width: 600px) {
+  h1 { font-size: 1.6rem !important; }
+  h2 { font-size: 1.2rem !important; }
+  
+  /* Ensure padding is safe on very small mobile screens */
+  .container, .panel, .content, .grid {
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
+}
+
+/* Accessibility: Respect users who prefer no animations */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

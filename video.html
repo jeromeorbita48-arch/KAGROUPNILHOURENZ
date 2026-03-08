@@ -1,35 +1,37 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <style>body{font-family:'Fira Mono','Consolas','Menlo','Monaco','Liberation Mono',monospace;}</style>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Video</title>
+  <title>Video Presentation</title>
   <link rel="stylesheet" href="nav.css">
   <link rel="stylesheet" href="video.css">
   <link rel="stylesheet" href="responsive.css">
 </head>
 <body>
   <div class="wrap">
-  <div class="nav-wrapper">
-    <nav class="main-nav">
-      <a href="index.html">Home</a>
-      <a href="resume.html">Resume</a>
-      <a href="video.html">Video</a>
-      <a href="about.html">About</a>
-    </nav>
-  </div>
-    <div class="panel">
-      <h1 style="text-align:center;">My Group Mates</h1>
-      <div class="media" style="display:flex;justify-content:center;align-items:center;flex-direction:column;">
-        
-        <video id="groupVideo" width="720" height="405" controls style="display:block;margin:0 auto;max-width:100%;background:#222;">
+    <div class="nav-wrapper">
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="resume.html">Resume</a>
+        <a href="video.html">Video</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+    
+    <div class="panel accent-border">
+      <div class="cinema-header">
+        <h1>My Group Mates</h1>
+        <p class="cinema-subtitle">A Galilee Academy IT Presentation</p>
+      </div>
+      
+      <div class="cinema-frame">
+        <video id="groupVideo" controls poster="IT-background.jpg">
           <source src="Abyss.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
       </div>
     </div>
-  </div>
   </div>
 </body>
 </html>

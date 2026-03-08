@@ -1,221 +1,166 @@
-:root {
-    --accent: #3ee7c6;
-    --muted: #9fb7c9;
-}
-
-* {
-    box-sizing: border-box;
-}
+/* resume.css - Formal Executive Update */
+:root { --accent: #3ee7c6; --muted: #9fb7c9; }
+* { box-sizing: border-box; }
 
 body {
-    margin: 0;
-    font-family: 'Fira Mono', 'Consolas', 'Menlo', 'Monaco', 'Liberation Mono', monospace;
-    background: #071026;
-    color: #eaf6ff;
-    background-image: url('IT-background.jpg');
-    background-size: cover;
+  background: #071026 url('IT-background.jpg') fixed center/cover;
+  color: #eaf6ff;
+  margin: 0;
 }
 
 .wrap {
-    min-height: 100vh;
-    background: linear-gradient(180deg, rgba(3, 7, 18, 0.6), rgba(3, 7, 18, 0.9));
-    padding: 32px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(180deg, rgba(3,7,18,0.7), rgba(3,7,18,0.95));
+  padding-bottom: 60px;
 }
 
-.nav-wrapper {
-    margin-bottom: 18px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+h1 {
+  font-size: 3em !important;
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 0 20px rgba(62, 231, 198, 0.3);
+  margin-bottom: 40px;
+  animation: fadeDown 0.8s ease forwards;
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    max-width: 1100px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 16px;
-    align-items: start;
-    row-gap: 20px;
-    column-gap: 50px;
+/* Changed to a single-column stack */
+.resume-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .card {
-    background: rgba(255, 255, 255, 0.13);
-    padding: 30px;
-    border-radius: 24px;
-    border: 2px solid rgba(62, 231, 198, 0.18);
-    box-shadow: 0 8px 32px 0 rgba(62, 231, 198, 0.13);
-    margin-bottom: 18px;
-    transition: all 0.18s ease;
-    
-    display: flex;
-    flex-direction: column;
-    height: auto;
+  width: 100%;
+  background: rgba(15, 25, 35, 0.7);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
 }
 
-
-.toggle-details {
-    display: none;
-}
-
-
-.card-details {
-    display: none;
-    margin-top: 15px;
-}
-
-
-.toggle-details:checked ~ .card-details {
-    display: block;
-    animation: fadeIn 0.3s ease-in-out;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-5px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.card:hover {
-    background: rgba(62, 231, 198, 0.12);
-    box-shadow: 0 16px 48px 0 rgba(62, 231, 198, 0.18);
-    transform: translateY(-4px) scale(1.02);
-}
-
+/* Makes the whole header block clickable */
 .card-header {
-    display: flex;
-    gap: 18px;
-    align-items: center;
-    margin-bottom: 10px;
-    border-bottom: 1.5px solid rgba(62, 231, 198, 0.13);
-    padding-bottom: 15px;
-    min-height: 120px; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 10px;
+  transition: all 0.3s ease;
+}
+
+.card-header:hover {
+  opacity: 0.8;
+}
+
+.header-left {
+  display: flex;
+  gap: 25px;
+  align-items: center;
 }
 
 .avatar {
-    width: 80px;
-    height: 80px;
-    min-width: 80px;
-    border-radius: 16px;
-    object-fit: cover;
-    border: 3px solid var(--accent);
-    cursor: pointer;
+  width: 80px;
+  height: 80px;
+  border-radius: 15px;
+  object-fit: cover;
+  border: 2px solid transparent;
+  background: linear-gradient(#0f1923, #0f1923) padding-box, 
+              linear-gradient(135deg, var(--accent), #6ec6ff) border-box;
 }
 
-h2 {
-    margin: 0 0 2px 0;
-    font-size: 22px;
-    font-weight: 800;
-    letter-spacing: 1.2px;
-    color: var(--accent);
+.expand-hint {
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.9em;
+  transition: transform 0.4s ease;
+  letter-spacing: 1px;
 }
 
-.meta {
-    color: var(--muted);
-    font-size: 14px;
-    margin-bottom: 4px;
-    font-style: italic;
+.toggle-details { display: none; }
+
+/* The smooth expansion trick */
+.card-details {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease;
+}
+
+.toggle-details:checked ~ .card-details {
+  max-height: 1500px;
+  opacity: 1;
+  margin-top: 25px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 25px;
+}
+
+/* Flips the arrow when opened */
+.toggle-details:checked ~ .card-header .expand-hint {
+  transform: rotate(180deg);
+  color: #fff;
+}
+
+/* The Professional Internal 2-Column CV Layout */
+.resume-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 40px;
+}
+
+.resume-sidebar {
+  border-right: 1px solid rgba(255,255,255,0.08);
+  padding-right: 30px;
 }
 
 .section-title {
-    font-size: 18px;
-    margin: 22px 0 8px 0;
-    font-weight: 700;
-    color: var(--accent);
-    letter-spacing: 0.8px;
-    border-bottom: 1.5px solid rgba(62, 231, 198, 0.13);
-    padding-bottom: 4px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.section-title::before {
-    content: "";
-    display: inline-block;
-    width: 18px;
-    height: 18px;
-    background: var(--accent);
-    border-radius: 50%;
-    opacity: 0.18;
-    margin-right: 2px;
+  color: var(--accent);
+  font-size: 1.1em;
+  margin: 0 0 15px 0;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 700;
 }
 
 ul {
-    margin: 8px 0 0 22px;
-    padding-left: 0;
-    font-size: 15px;
-    line-height: 1.6;
+  padding-left: 20px;
+  margin-top: 0;
+  color: #c4d8e2;
+  line-height: 1.7;
 }
+
+ul li::marker { color: var(--accent); }
 
 p {
-    font-size: 15px;
-    color: #eaf6ff;
-    margin: 0 0 8px 0;
+  color: #c4d8e2;
+  line-height: 1.6;
+  margin-bottom: 20px;
 }
 
-
-.resume-header {
-    text-align: center;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.8);
-    color: var(--accent);
-    border-radius: 10px;
-    margin-bottom: 20px;
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.resume-content {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    color: #eaf6ff;
-}
-
-.resume-content h2 {
-    color: var(--accent);
-    margin-bottom: 10px;
-}
-
-.resume-content p {
-    line-height: 1.6;
-    margin-bottom: 10px;
-}
-
-
-@media (max-width: 900px) {
-    .grid {
-        grid-template-columns: 1fr;
-        gap: 22px;
-        max-width: 98vw;
-        padding: 0 2vw;
-    }
-    .card {
-        padding: 18px 8px 12px 8px;
-        border-radius: 12px;
-    }
-    .avatar {
-        width: 56px;
-        height: 56px;
-    }
-    h2 { font-size: 18px; }
-}
-
-@media (max-width: 600px) {
-    .grid { gap: 20px; }
-    .card { padding: 12px 8px 10px 8px; }
-    .card-header { flex-direction: column; text-align: center; }
-    .avatar { width: 38px; height: 38px; }
-    h2 { font-size: 15px; }
-}
-
-@media (max-width: 400px) {
-    .grid { gap: 50px; }
-    .card { padding: 8px 2px 6px 2px; }
-    .avatar { width: 28px; height: 28px; }
-    h2 { font-size: 12px; }
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .resume-grid {
+    grid-template-columns: 1fr; /* Stacks to 1 column on small screens */
+    gap: 20px;
+  }
+  .resume-sidebar {
+    border-right: none;
+    border-bottom: 1px dashed rgba(255,255,255,0.2);
+    padding-right: 0;
+    padding-bottom: 20px;
+  }
+  .header-left { gap: 15px; }
+  .expand-hint { display: none; /* Hide text on mobile to save space */ }
 }

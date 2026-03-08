@@ -1,147 +1,73 @@
-body {
-	font-family: 'Fira Mono', 'Consolas', 'Menlo', 'Monaco', 'Liberation Mono', monospace;
-}
-
-@media (max-width: 700px) {
-	.main-nav {
-		flex-direction: column;
-		align-items: flex-end;
-		gap: 8px;
-		padding: 8px 0;
-	}
-
-	.main-nav a {
-		padding: 8px 0;
-		width: 100%;
-		text-align: right;
-	}
-
-	.header {
-		padding: 12px 8px;
-	}
-}
-
-@media (max-width: 500px) {
-	.main-nav {
-		flex-direction: row;
-		overflow-x: auto;
-		gap: 4px;
-		width: 100vw;
-		justify-content: flex-start;
-		padding: 2px 0 2px 2vw;
-		font-size: 0.98em;
-		scrollbar-width: thin;
-	}
-
-	.main-nav a {
-		min-width: 70px;
-		padding: 7px 8px;
-		font-size: 0.98em;
-		text-align: center;
-		white-space: nowrap;
-	}
-}
-
-
-@media (max-width: 700px) {
-	.main-nav {
-		flex-direction: row;
-		flex-wrap: wrap;
-		justify-content: center;
-		gap: 12px;
-	}
-
-	.main-nav a {
-		padding: 8px 12px;
-	}
-}
-
-/* Centered the navigation bar menu on smaller screens */
-@media (max-width: 700px) {
-	.main-nav {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		gap: 10px;
-		padding: 10px 0;
-	}
-
-	.main-nav a {
-		width: auto;
-		text-align: center;
-		padding: 10px;
-	}
-}
-
+/* nav.css - Ultra Premium Update */
 :root {
-	--nav-color: #dff7f0;
-	--nav-accent: #3ee7c6
+  --nav-color: #eaf6ff;
+  --nav-accent: #3ee7c6;
+}
+
+body {
+  font-family: 'Fira Mono', 'Consolas', 'Menlo', 'Monaco', 'Liberation Mono', monospace;
+  margin: 0;
+}
+
+.nav-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 20px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  animation: slideDown 0.8s ease-out forwards;
 }
 
 .main-nav {
-	display: flex;
-	gap: 24px;
-	align-items: center;
-	justify-content: center;
-	background: rgba(0, 0, 0, 0.18);
-	border-radius: 16px;
-	box-shadow: 0 4px 24px 0 rgba(62, 231, 198, 0.08);
-	padding: 10px 20px;
-	margin: 0 auto;
-	max-width: 100%;
-	flex-wrap: wrap;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 20, 35, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 50px; /* Floating pill shape */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  padding: 10px 25px;
+  flex-wrap: wrap;
 }
 
 .main-nav a {
-	color: var(--nav-color);
-	text-decoration: none;
-	font-weight: 700;
-	padding: 10px 22px;
-	border-radius: 8px;
-	background: transparent; /* Ensures no background color */
-	transition: color 0.18s, background 0.18s, box-shadow 0.18s;
-	position: relative;
-	font-size: 1.08em;
-	letter-spacing: 0.5px;
+  color: var(--nav-color);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
 }
 
-/* Updated navigation hover effect to underline links and removed background color */
-.main-nav a {
-	color: #fff;
-	text-decoration: none;
-	padding: 10px 15px;
-	position: relative;
-	display: inline-block;
+.main-nav a:hover, .main-nav a:focus {
+  color: #121212;
+  background-color: var(--nav-accent);
+  box-shadow: 0 0 15px rgba(62, 231, 198, 0.5);
+  transform: translateY(-2px);
 }
 
-.main-nav a::after {
-	content: '';
-	position: absolute;
-	left: 0;
-	bottom: 0;
-	width: 0;
-	height: 2px;
-	background-color: var(--accent);
-	transition: width 0.3s ease-in-out;
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.main-nav a:hover::after {
-	width: 100%;
-}
-
-.main-nav a:hover {
-	color: var(--nav-accent);
-	background-color: transparent; /* Ensures no background color on hover */
-}
-
-.main-nav a:focus {
-	color: var(--nav-accent);
-	background: rgba(62, 231, 198, 0.08);
-	box-shadow: 0 2px 8px 0 rgba(62, 231, 198, 0.10);
-}
-
-.main-nav a:focus {
-	outline: 2px dashed rgba(62, 231, 198, 0.25);
-	outline-offset: 3px
+@media (max-width: 600px) {
+  .main-nav {
+    gap: 5px;
+    padding: 10px 15px;
+    border-radius: 20px;
+  }
+  .main-nav a {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+  }
 }

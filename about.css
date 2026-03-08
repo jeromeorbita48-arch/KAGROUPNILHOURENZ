@@ -1,112 +1,222 @@
-.nav-wrapper{margin-bottom:18px;display:flex;justify-content:center;align-items:center;}
-:root{--accent:#3ee7c6;--muted:#9fb7c9}
-*{box-sizing:border-box}
-body{margin:0;font-family:'Fira Mono','Consolas','Menlo','Monaco','Liberation Mono',monospace;background:#071026;color:#eaf6ff;background-image:url('IT-background.jpg');background-size:cover}
-.wrap{min-height:100vh;background:linear-gradient(180deg,rgba(3,7,18,0.6),rgba(3,7,18,0.85));padding:28px}
-.nav-wrapper{margin-bottom:18px}
-.content{
-	max-width:900px;
-	margin:40px auto 0 auto;
-	background:rgba(20,30,40,0.18);
-	border-radius:24px;
-	box-shadow:0 8px 32px 0 rgba(62,231,198,0.10);
-	padding:40px 40px 32px 40px;
-	display:flex;
-	flex-direction:column;
-	align-items:center;
-	backdrop-filter:blur(2px);
-}
-h1{
-	font-size:2.2em;
-	margin:28px 0 12px 0;
-	color:var(--accent);
-	letter-spacing:2.5px;
-	font-weight:800;
-	text-align:center;
-	text-shadow:0 2px 12px rgba(62,231,198,0.12);
+/* about.css - Ultra Premium Update */
+:root {
+  --accent: #3ee7c6;
 }
 
-h3{
-	color:var(--accent);
+* {
+  box-sizing: border-box;
 }
-a{color:var(--accent)}
-@media(max-width:700px){.content{padding:16px}}
-@media (max-width: 900px) {
+
+body {
+  background: #071026 url('IT-background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #eaf6ff;
+}
+
+.wrap {
+  min-height: 100vh;
+  background: linear-gradient(180deg, rgba(3, 7, 18, 0.7), rgba(3, 7, 18, 0.95));
+  padding: 0 20px 40px 20px;
+}
+
+.content {
+  max-width: 900px;
+  margin: 20px auto;
+  background: rgba(15, 25, 35, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  padding: 50px;
+  animation: fadeUp 0.8s ease-out forwards;
+}
+
+h1 {
+  font-size: 3em;
+  margin: 0 0 20px 0;
+  color: transparent;
+  background: linear-gradient(90deg, #fff, var(--accent));
+  background-clip: text;
+  -webkit-background-clip: text;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+h3 {
+  color: var(--accent);
+  font-size: 1.5em;
+  border-bottom: 2px solid rgba(62, 231, 198, 0.2);
+  padding-bottom: 10px;
+  display: inline-block;
+}
+
+.content p {
+  line-height: 1.8;
+  font-size: 1.1em;
+  color: #c4d8e2;
+}
+
+/* Credits Section Enhancement */
+.credits {
+  background: rgba(10, 15, 25, 0.6) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  animation: fadeUp 1s ease-out 0.3s forwards;
+  opacity: 0;
+}
+
+.credits li {
+  background: rgba(255, 255, 255, 0.02);
+  padding: 20px;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.credits li:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(62, 231, 198, 0.3);
+  transform: scale(1.02) translateX(10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.credits img {
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
   .content {
-    max-width: 98vw;
-    padding: 12px 4vw 18px 4vw;
-    border-radius: 14px;
+    padding: 30px 20px;
   }
+
   h1 {
-    font-size: 1.4em;
-    margin: 18px 0 8px 0;
-  }
-  h3 {
-    font-size: 1.1em;
-  }
-  p {
-    font-size: 1em;
-  }
-  .wrap {
-    padding: 10px;
-  }
-  .nav-wrapper {
-    margin-bottom: 10px;
+    font-size: 2em;
   }
 }
 
-@media (max-width: 600px) {
-  .content {
-    max-width: 98vw;
-    margin: 0 auto 12px auto;
-    padding: 10px 4vw 12px 4vw;
-    border-radius: 8px;
-    box-sizing: border-box;
-  }
-  h1 {
-    font-size: 1.08em;
-    margin: 10px 0 6px 0;
-    text-align: center;
-  }
-  h3 {
-    font-size: 1em;
-    text-align: center;
-  }
-  p {
-    font-size: 0.97em;
-    text-align: left;
-  }
-  .wrap {
-    padding: 4px;
-  }
-  .nav-wrapper {
-    margin-bottom: 6px;
-  }
+/* Premium Credits Layout - Updated with Justify and Custom Icons */
+.intro-card {
+  text-align: center;
+  margin-top: 40px;
+  padding: 50px;
 }
 
-.about-header {
-    text-align: center;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.8);
-    color: var(--accent);
-    border-radius: 10px;
-    margin-bottom: 20px;
+.subtitle {
+  color: var(--accent);
+  font-size: 1.2em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
 }
 
-.about-content {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    color: #eaf6ff;
+/* Justified text applied here */
+.text-block {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 30px;
+  border-radius: 15px;
+  border-left: 4px solid var(--accent);
 }
 
-.about-content h2 {
-    color: var(--accent);
-    margin-bottom: 10px;
+.text-block p {
+  text-align: justify;
 }
 
-.about-content p {
-    line-height: 1.6;
-    margin-bottom: 10px;
+.credits-section {
+  max-width: 1000px;
+  margin: 60px auto 0 auto;
+  animation: fadeUp 1s ease 0.3s forwards;
+  opacity: 0;
+}
+
+.credits-section h2 {
+  text-align: center;
+  color: var(--accent);
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+.credits-subtext {
+  text-align: center;
+  color: #9fb7c9;
+  margin-bottom: 40px;
+  font-size: 1.1em;
+}
+
+.credits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.credit-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: rgba(15, 25, 35, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 15px;
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.credit-card:hover {
+  transform: scale(1.03);
+  border-color: var(--accent);
+  box-shadow: 0 10px 25px rgba(62, 231, 198, 0.15);
+  background: rgba(25, 35, 45, 0.8);
+}
+
+.credit-card img {
+  width: 80px;
+  height: 80px;
+  min-width: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 15px rgba(62, 231, 198, 0.2);
+}
+
+.credit-info h4 {
+  color: #fff;
+  margin: 0 0 8px 0;
+  font-size: 1.2em;
+  letter-spacing: 0.5px;
+}
+
+/* Justified text applied here too */
+.credit-info p {
+  color: #c4d8e2;
+  margin: 0;
+  font-size: 0.9em;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+/* Styling specifically for the text-only cards */
+.text-card .credit-info {
+  width: 100%;
+}
+
+.text-card h4 {
+  color: var(--accent);
+  font-size: 1.3em;
+  text-align: center;
+  margin-bottom: 12px;
+  border-bottom: 1px dashed rgba(62, 231, 198, 0.3);
+  padding-bottom: 10px;
 }
